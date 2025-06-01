@@ -77,7 +77,7 @@ alias fd = fd -Lu
 alias fetch = disfetch
 alias gitfetch = onefetch
 alias grep = batgrep
-alias ll = eza --icons --group-directories-first --total-size -l -a -@ -T -L=1
+alias ll = ls -la 
 alias man = batman
 alias neofetch = disfetch
 alias top = btm
