@@ -1,7 +1,8 @@
-# Brew dependencies for brew
+# Brew dependencies
 
 ```bash
   brew install \
+  stow\
   openssl\
   cmake\
   kitty\
