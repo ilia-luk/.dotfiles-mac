@@ -33,6 +33,7 @@
   font-symbols-only-nerd-font \
   gpg \
   gawk \
+  tmux \
   --cask font-fira-code-nerd-font
 
 ```
