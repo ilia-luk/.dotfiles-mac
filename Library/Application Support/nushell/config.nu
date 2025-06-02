@@ -79,8 +79,10 @@ $env.config = ($env.config? | default {})
 $env.config.hooks = ($env.config.hooks? | default {})
 
 def zea [...x] { zellij attach ...$x }
-def zec [...x] { zellij ...$x }
+def zec [...x] { zellij -s ...$x }
 def zel [...x] { zellij list-sessions }
+def zek [...x] { zellij kill-session ...$x }
+def zed [...x] { zellij delete-session ...$x }
 
 alias cat = bat
 alias diff = batdiff
