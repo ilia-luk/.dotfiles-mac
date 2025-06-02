@@ -1,18 +1,53 @@
-# Brew dependencies
+# .dotfiles for the modern macOS ninja
+
+## Brew dependencies
 
 ```bash
-  brew install \
-  stow\
-  openssl\
-  cmake\
-  kitty\
-  fish\
-  nushell\
-  zoxide\
-  carapace\
-  starship\
+  brew install stow \
+  openssl \
+  cmake \
+  kitty \
+  fish \
+  nushell \
+  zoxide \
+  carapace \
+  starship \
+  bat \
+  bat-extras \
+  fd \
+  onefetch \
+  fastfetch \
+  bottom \
+  htop \
+  zellij \
   --cask font-fira-code-nerd-font
 
+```
+
+## Installation
+
+step 1: create `~/.dotfiles` path on your machine by running the following
+
+```bash
+  mkdir ~/.dotfiles
+```
+
+step 2: clone this repository into ~/.dotfiles
+
+```bash
+  git clone <repo-url> ~/.dotfiles
+```
+
+step 3: delete .git
+
+```bash
+ cd ~/.dotfiles && rm-rf .git
+```
+
+step 4: symlink all files (you might need to backup/remove existing config files)
+
+```bash
+ stow .
 ```
 
 ## Make nushell default macOS shell
@@ -23,8 +58,16 @@ step 1: add nu to /etc/shells
   sudo sh -c 'echo | which nu >> /etc/shells'
 ```
 
-step 2:
+step 2: make sure you are inside nu shell.
 
 ```bash
-  chsh -s which nu
+  nu
 ```
+
+step 3: define nu as default shell
+
+```nushell
+  chsh -s (which nu | get path | first)
+```
+
+step 4: close current terminal and re/open kitty.

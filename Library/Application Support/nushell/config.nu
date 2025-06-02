@@ -1,3 +1,11 @@
+
+$env.PATH = ($env.PATH | split row (char esep)
+  | prepend /home/myuser/.apps
+  | prepend '/opt/homebrew/bin'
+  | append /usr/bin/env)
+
+zoxide init nushell | save -f ~/.zoxide.nu
+
 let fish_completer = {|spans|
     fish --command $"complete '--do-complete=($spans | str join ' ')'"
     | from tsv --flexible --noheaders --no-infer
@@ -59,8 +67,8 @@ $env.config = {
       completer: $external_completer 
     }
   }
-} 
-$env.PATH = ($env.PATH | split row (char esep) | prepend /home/myuser/.apps | append /usr/bin/env)
+}
+
 { ||
   if (which direnv | is-empty) {
     return
@@ -74,12 +82,11 @@ $env.config.hooks = ($env.config.hooks? | default {})
 alias cat = bat
 alias diff = batdiff
 alias fd = fd -Lu
-alias fetch = disfetch
+alias fetch = fastfetch
 alias gitfetch = onefetch
 alias grep = batgrep
 alias ll = ls -l 
 alias man = batman
-alias neofetch = disfetch
 alias top = btm
 alias watch = batwatch
 
