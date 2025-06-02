@@ -3,6 +3,8 @@ $env.PATH = ($env.PATH | split row (char esep)
   | prepend '/opt/homebrew/bin'
   | append ~/bin)
 
+$env.EDITOR = 'nvim'
+
 zoxide init nushell | save -f ~/.zoxide.nu
 
 let fish_completer = {|spans|
