@@ -14,6 +14,8 @@ $env.PATH = ( $env.PATH | split row (char esep)
 
 zoxide init nushell | save -f ~/.zoxide.nu
 
+source ~/.zoxide.nu
+
 let fish_completer = {|spans|
     fish --command $"complete '--do-complete=($spans | str join ' ')'"
     | from tsv --flexible --noheaders --no-infer
@@ -114,6 +116,6 @@ alias watch = batwatch
 mkdir ($nu.data-dir | path join "vendor/autoload")
 starship init nu | save -f ($nu.data-dir | path join "vendor/autoload/starship.nu")
 
-source ~/.zoxide.nu
+
 
 
