@@ -92,7 +92,7 @@ $env.ASDF_DATA_DIR = $"($env.HOME)/.asdf"
 $env.ASDF_PYTHON_PATCH_URL = "https://github.com/python/cpython/commit/8ea6353.patch?full_index=1"
 
 mkdir $"($env.ASDF_DATA_DIR)/completions"
-asdf completion nushell | save $"($env.ASDF_DATA_DIR)/completions/nushell.nu" -f
+asdf completion nushell | save -f $"($env.ASDF_DATA_DIR)/completions/nushell.nu"
 
 let asdf_data_dir = (
   if ( $env | get --ignore-errors ASDF_DATA_DIR | is-empty ) {
