@@ -1,8 +1,7 @@
 
 $env.PATH = ($env.PATH | split row (char esep)
-  | prepend /home/myuser/.apps
   | prepend '/opt/homebrew/bin'
-  | append /usr/bin/env)
+  | append ~/bin)
 
 zoxide init nushell | save -f ~/.zoxide.nu
 
@@ -78,6 +77,10 @@ $env.config = {
 
 $env.config = ($env.config? | default {})
 $env.config.hooks = ($env.config.hooks? | default {})
+
+def zea [...x] { zellij attach ...$x }
+def zec [...x] { zellij ...$x }
+def zel [...x] { zellij list-sessions }
 
 alias cat = bat
 alias diff = batdiff

@@ -41,13 +41,27 @@ step 2: clone this repository into ~/.dotfiles
 step 3: delete .git
 
 ```bash
- cd ~/.dotfiles && rm-rf .git
+ cd ~/.dotfiles && rm-rf .git && git init
 ```
 
 step 4: symlink all files (you might need to backup/remove existing config files)
 
 ```bash
  stow .
+```
+
+step 5: give execute permissions for `sync-dotfiles` script
+
+```bash
+  chmod +x ~/bin/sync-dotfiles
+```
+
+## Making changes in config files
+
+step 1: make any changes in `~/.dotfiles` configs and run the following to sync to system
+
+```bash
+  sync-dotfiles
 ```
 
 ## Make nushell default macOS shell
