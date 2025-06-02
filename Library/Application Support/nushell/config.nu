@@ -94,15 +94,6 @@ $env.ASDF_PYTHON_PATCH_URL = "https://github.com/python/cpython/commit/8ea6353.p
 mkdir $"($env.ASDF_DATA_DIR)/completions"
 asdf completion nushell | save -f $"($env.ASDF_DATA_DIR)/completions/nushell.nu"
 
-let asdf_data_dir = (
-  if ( $env | get --ignore-errors ASDF_DATA_DIR | is-empty ) {
-    $env.HOME | path join '.asdf'
-  } else {
-    $env.ASDF_DATA_DIR
-  }
-)
-. "$asdf_data_dir/completions/nushell.nu"
-
 def zea [...x] { zellij attach ...$x }
 def zec [...x] { zellij -s ...$x }
 def zel [...x] { zellij list-sessions }
