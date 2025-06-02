@@ -1,0 +1,4 @@
+linemode = "size"
+show_hidden = true
+sort_by = "size"
+sort_dir_first = true

@@ -9,17 +9,27 @@
   kitty \
   fish \
   nushell \
-  zoxide \
   carapace \
   starship \
   bat \
   bat-extras \
-  fd \
   onefetch \
   fastfetch \
   bottom \
   htop \
   zellij \
+  yazi \
+  ffmpeg \
+  sevenzip \
+  jq \
+  poppler \
+  fd \
+  ripgrep \
+  fzf \
+  zoxide \
+  resvg \
+  imagemagick \
+  font-symbols-only-nerd-font \
   --cask font-fira-code-nerd-font
 
 ```
