@@ -11,6 +11,7 @@
   nushell \
   carapace \
   starship \
+  asdf \
   bat \
   bat-extras \
   onefetch \
@@ -30,6 +31,8 @@
   resvg \
   imagemagick \
   font-symbols-only-nerd-font \
+  gpg \
+  gawk \
   --cask font-fira-code-nerd-font
 
 ```
@@ -68,7 +71,7 @@ step 5: give execute permissions for `sync-dotfiles` script
 
 ## Making changes in config files
 
-step 1: make any changes in `~/.dotfiles` configs and run the following to sync to system
+step 1: make any changes in `~/.dotfiles` configs and run the following to sync the system
 
 ```bash
   sync-dotfiles
@@ -90,8 +93,44 @@ step 2: make sure you are inside nu shell.
 
 step 3: define nu as default shell
 
-```nushell
+```nu
   chsh -s (which nu | get path | first)
 ```
 
 step 4: close current terminal and re/open kitty.
+
+## Change default editor
+
+step: 1: In `Library/Application Support/nushell/config.nu` change the following to the editor of your choice
+
+```nu
+  $env.EDITOR = 'nvim'
+```
+
+## NodeJS and Python version manager
+
+step 1: run the following in a shell to install the NodeJS plugin
+
+```nu
+  asdf plugin add nodejs https://github.com/asdf-vm/asdf-nodejs.git
+```
+
+step 2: install a NodeJS latest version (or specific one using `asdf list all nodejs` and then changing `latest` to version number)
+
+```nu
+  asdf install nodejs latest
+```
+
+step 3: run the following in a shell to install the Python plugin
+
+```nu
+  asdf plugin add python
+```
+
+step 4: install a Python latest version (or specific one using `asdf list all python` and then changing `latest` to version number)
+
+```nu
+  asdf install python latest
+```
+
+step 5: change `.tool-version` to include the versions you selected to serve as global versions

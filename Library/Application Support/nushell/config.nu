@@ -1,9 +1,16 @@
+let shims_dir = (
+  if ( $env | get --ignore-errors ASDF_DATA_DIR | is-empty ) {
+    $env.HOME | path join '.asdf'
+  } else {
+    $env.ASDF_DATA_DIR
+  } | path join 'shims'
+)
 
-$env.PATH = ($env.PATH | split row (char esep)
-  | prepend '/opt/homebrew/bin'
-  | append ~/bin)
-
-$env.EDITOR = 'nvim'
+$env.PATH = ( $env.PATH | split row (char esep)
+    | where { |p| $p != $shims_dir }
+    | prepend $shims_dir
+    | prepend '/opt/homebrew/bin'
+    | append ~/bin)
 
 zoxide init nushell | save -f ~/.zoxide.nu
 
@@ -80,6 +87,22 @@ $env.config = {
 $env.config = ($env.config? | default {})
 $env.config.hooks = ($env.config.hooks? | default {})
 
+$env.EDITOR = 'nvim'
+$env.ASDF_DATA_DIR = $"($env.HOME)/.asdf"
+$env.ASDF_PYTHON_PATCH_URL = "https://github.com/python/cpython/commit/8ea6353.patch?full_index=1"
+
+mkdir $"($env.ASDF_DATA_DIR)/completions"
+asdf completion nushell | save $"($env.ASDF_DATA_DIR)/completions/nushell.nu" -f
+
+let asdf_data_dir = (
+  if ( $env | get --ignore-errors ASDF_DATA_DIR | is-empty ) {
+    $env.HOME | path join '.asdf'
+  } else {
+    $env.ASDF_DATA_DIR
+  }
+)
+. "$asdf_data_dir/completions/nushell.nu"
+
 def zea [...x] { zellij attach ...$x }
 def zec [...x] { zellij -s ...$x }
 def zel [...x] { zellij list-sessions }
@@ -92,7 +115,7 @@ alias fd = fd -Lu
 alias fetch = fastfetch
 alias gitfetch = onefetch
 alias grep = batgrep
-alias ll = ls -l 
+alias ll = ls -a 
 alias man = batman
 alias top = btm
 alias watch = batwatch
@@ -101,3 +124,5 @@ mkdir ($nu.data-dir | path join "vendor/autoload")
 starship init nu | save -f ($nu.data-dir | path join "vendor/autoload/starship.nu")
 
 source ~/.zoxide.nu
+
+
