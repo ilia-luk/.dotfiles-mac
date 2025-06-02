@@ -135,3 +135,11 @@ step 4: install a Python latest version (or specific one using `asdf list all py
 ```
 
 step 5: change `.tool-version` to include the versions you selected to serve as global versions
+
+## Enable catppuccin for bat and bat-extras
+
+step 1: enable catppuccin bat theme
+
+```nu
+  bat cache --build
+```
