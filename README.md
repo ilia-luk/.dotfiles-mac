@@ -120,7 +120,7 @@ step 4: close current terminal and re/open kitty.
 
 ### Change default editor
 
-step: 1: In `Library/Application Support/nushell/config.nu` change the following to the editor of your choice
+step: 1: In `~/.dotfiles/Library/Application Support/nushell/config.nu` change the following to the editor of your choice
 
 ```nu
   $env.EDITOR = 'nvim'
@@ -157,6 +157,8 @@ step 4: install a Python latest version (or specific one using `asdf list all py
 ```
 
 step 5: change `.tool-version` to include the versions you selected to serve as global versions
+
+step 6: if you changed `.tool-version`, run `sync-dotfiles` to sync changes.
 
 ### Enable catppuccin for bat and bat-extras
 
