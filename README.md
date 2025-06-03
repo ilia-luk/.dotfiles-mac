@@ -34,6 +34,7 @@
   gpg \
   gawk \
   tmux \
+  lazygit \
   --cask font-fira-code-nerd-font
 
 ```
