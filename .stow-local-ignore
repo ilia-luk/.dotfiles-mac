@@ -2,5 +2,7 @@
 misc
 #LICENSE
 ^/.*\.org
+^/.*\.DS_Store
 README.md
 .config/tmux/plugins
+assets
