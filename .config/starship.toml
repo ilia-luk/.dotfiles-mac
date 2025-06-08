@@ -1,7 +1,14 @@
 add_newline = true
 command_timeout = 1000
-format = "$git_branch$git_status$line_break$nodejs$python$rust$conda$directory$character"
-scan_timeout = 10
+
+format = '''
+[┌─$git_branch$git_status$git_commit$git_state$git_metrics$fill─> ](bold green)$cmd_duration$time
+[│](bold green) $directory$rust$nodejs$bun$python$conda$package
+[└─$shell─>](bold green) '''
+
+[fill]
+symbol = '─'
+style = 'bold green'
 
 [character]
 error_symbol = "[](red)"
@@ -13,6 +20,14 @@ home_symbol = "󰋞 ~"
 read_only = "  "
 read_only_style = "197"
 style = "bold blue"
+truncation_symbol = '...'
+fish_style_pwd_dir_length = 8
+
+[package]
+format = ' | [$symbol$version]($style) '
+symbol = '📦 '
+version_format = 'v${raw}'
+style = 'bold 208'
 
 [git_branch]
 format = "[$symbol $branch]($style) "
@@ -38,6 +53,7 @@ up_to_date = " "
 commit_hash_length = 4
 tag_symbol = '🔖 '
 
+
 [hostname]
 disabled = false
 format = "@ [$hostname](bold yellow) "
@@ -56,20 +72,31 @@ symbol = '👩‍💻 '
 disabled = false
 
 [rust]
-format = '[⚙️ $version](red bold)'
+format = '| [🦀 $version](red bold)'
 
 [python]
-symbol = '👾 '
+symbol = '| 👾 '
 pyenv_version_name = true
 
 [conda]
-format = '[$symbol$environment](dimmed green) '
+format = '| [$symbol$environment](dimmed green) '
 
 [nodejs]
-format = '[🤖 $version](bold green) '
+format = '| [🤖 $version](bold green) '
 
 [bun]
-format = '[🍔 $version](bold green) '
+format = '| [🍔 $version](bold green) '
 
 [direnv]
 disabled = false
+
+[time]
+disabled = false
+format = '[\[ $time \]]($style)'
+style = 'bold yellow'
+time_format = '%T'
+utc_time_offset = 'local'
+
+[cmd_duration]
+min_time = 500
+format = '[\[ $duration \]](bold cyan) | '

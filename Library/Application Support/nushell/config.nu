@@ -10,6 +10,7 @@ $env.PATH = ( $env.PATH | split row (char esep)
     | where { |p| $p != $shims_dir }
     | prepend $shims_dir
     | prepend '/opt/homebrew/bin'
+    | prepend '/Users/ilialuk/.cargo/bin'
     | append ~/bin)
 
 zoxide init nushell | save -f ~/.zoxide.nu
