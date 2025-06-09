@@ -18,3 +18,9 @@
 # them for future reference.
 
 
+def transient_prompt_right [] {
+  $"(^starship module cmd_duration)(^starship module time)"
+}
+
+$env.TRANSIENT_PROMPT_COMMAND = ^starship module shell
+$env.TRANSIENT_PROMPT_COMMAND_RIGHT = transient_prompt_right

@@ -4,7 +4,7 @@ command_timeout = 1000
 format = '''
 [┌─$git_branch$git_status$git_commit$git_state$git_metrics$fill─> ](bold green)$cmd_duration$time
 [│](bold green) $directory$rust$nodejs$bun$python$conda$package
-[└─$shell─>](bold green) '''
+[└──>](bold green) '''
 
 [fill]
 symbol = '─'
@@ -100,3 +100,10 @@ utc_time_offset = 'local'
 [cmd_duration]
 min_time = 500
 format = '[\[ $duration \]](bold cyan) | '
+
+[shell]
+disabled = false
+nu_indicator = '❯'
+unknown_indicator = ''
+format = '[$indicator]($style) '
+style = 'bold green'
