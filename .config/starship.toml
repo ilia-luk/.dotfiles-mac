@@ -2,7 +2,7 @@ add_newline = true
 command_timeout = 1000
 
 format = '''
-[┌─$git_branch$git_status$git_commit$git_state$git_metrics$fill─> ](bold green)$cmd_duration$time
+[┌─$git_branch$git_status$git_commit$git_state$git_metrics$fill─> ](bold green)$character$cmd_duration$time
 [│](bold green) $directory$rust$nodejs$bun$python$conda$package
 [└──>](bold green) '''
 
@@ -11,8 +11,8 @@ symbol = '─'
 style = 'bold green'
 
 [character]
-error_symbol = "[](red)"
-success_symbol = "[](magenta)"
+error_symbol = "[ ](red)"
+success_symbol = "[✔](green)"
 
 [directory]
 format = "[$path]($style)[$read_only]($read_only_style) "
