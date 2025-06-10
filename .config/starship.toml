@@ -104,6 +104,6 @@ format = '[\[ $duration \]](bold cyan) | '
 [shell]
 disabled = false
 nu_indicator = '❯'
-unknown_indicator = ''
+unknown_indicator = '❯'
 format = '[$indicator]($style) '
 style = 'bold green'
