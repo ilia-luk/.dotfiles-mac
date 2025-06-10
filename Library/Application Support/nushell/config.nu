@@ -52,6 +52,11 @@ if not ($env.STARSHIP_DATA_DIR | path exists) {
   mkdir $env.STARSHIP_DATA_DIR
 }
 starship init nu | save -f $"($env.STARSHIP_DATA_DIR)/starship.nu"
+def transient_prompt_right [] {
+  {|| $"(^starship module cmd_duration)(^starship module time)"}
+}
+$env.TRANSIENT_PROMPT_COMMAND = ^starship module shell
+$env.TRANSIENT_PROMPT_COMMAND_RIGHT = transient_prompt_right
 
 # Init Zoxide
 zoxide init nushell | save -f ~/.zoxide.nu
