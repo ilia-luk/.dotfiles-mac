@@ -1,2 +1,4 @@
+ctrl_n_shortcuts = true
+
 [theme]
 name = "catppuccin-macchiato-flamingo"
