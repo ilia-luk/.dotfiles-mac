@@ -54,7 +54,7 @@ A modern macOS terminal environment that includes:
 Install brew dependencies and fonts from --cask
 
 ```bash
-  brew install stow openssl cmake kitty fish  nushell carapace starship asdf bat bat-extras onefetch fastfetch bottom htop zellij yazi ffmpeg sevenzip jq poppler fd ripgrep fzf zoxide resvg imagemagick font-symbols-only-nerd-font gpg gawk tmux lazygit xh dua-cli mprocs
+  brew install stow openssl cmake kitty fish nushell carapace starship asdf bat bat-extras onefetch fastfetch bottom htop zellij yazi ffmpeg sevenzip jq poppler fd ripgrep fzf zoxide resvg imagemagick font-symbols-only-nerd-font gpg gawk tmux lazygit xh dua-cli mprocs atuin
 ```
 
 ```bash
@@ -193,3 +193,4 @@ enable catppuccin bat theme
 - Font(FiraCode): [nerd-fonts](https://www.nerdfonts.com/)
 - Git info: [onefetch](https://github.com/o2sh/onefetch)
 - System info: [fastfetch](https://github.com/fastfetch-cli/fastfetch)
+- Search history: [Atuin](https://github.com/atuinsh/atuin)

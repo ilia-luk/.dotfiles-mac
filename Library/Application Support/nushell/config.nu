@@ -1,3 +1,64 @@
+$env.PATH = ( $env.PATH | split row (char esep)
+    | prepend '/opt/homebrew/bin')
+
+$env.config = ($env.config? | default {})
+$env.config.hooks = ($env.config.hooks? | default {})
+$env.EDITOR = 'nvim'
+
+def zea [...x] { zellij attach ...$x }
+def zec [...x] { zellij -s ...$x }
+def zel [...x] { zellij list-sessions }
+def zek [...x] { zellij kill-session ...$x }
+def zed [...x] { zellij delete-session ...$x }
+
+alias cat = bat
+alias diff = batdiff
+alias fd = fd -Lu
+alias fetch = fastfetch
+alias gitfetch = onefetch
+alias grep = batgrep
+alias ll = ls -a 
+alias man = batman
+alias top = btm
+alias watch = batwatch
+
+# Init Direnv
+{ ||
+  if (which direnv | is-empty) {
+    return
+  }
+  direnv export json | from json | default {} | load-env
+}
+
+# Init asdf
+$env.ASDF_DATA_DIR = $"($env.HOME)/.asdf"
+$env.ASDF_PYTHON_PATCH_URL = "https://github.com/python/cpython/commit/8ea6353.patch?full_index=1"
+if not ($env.ASDF_DATA_DIR | path exists) {
+  mkdir $"($env.ASDF_DATA_DIR)/completions"
+}
+asdf completion nushell | save -f $"($env.ASDF_DATA_DIR)/completions/nushell.nu"
+
+# Init Atuin
+$env.ATUIN_DATA_DIR = "~/.local/share/atuin"
+if not ($env.ATUIN_DATA_DIR | path exists) {
+  mkdir $env.ATUIN_DATA_DIR
+}
+atuin init nu | save -f $"($env.ATUIN_DATA_DIR)/init.nu"
+source ~/.local/share/atuin/init.nu
+
+# Init Starship
+$env.STARSHIP_DATA_DIR = ($nu.data-dir | path join "vendor/autoload")
+if not ($env.STARSHIP_DATA_DIR | path exists) {
+  mkdir $env.STARSHIP_DATA_DIR
+}
+starship init nu | save -f $"($env.STARSHIP_DATA_DIR)/starship.nu"
+
+# Init Zoxide
+zoxide init nushell | save -f ~/.zoxide.nu
+source ~/.zoxide.nu
+
+# SHIMS:
+
 let shims_dir = (
   if ( $env | get --ignore-errors ASDF_DATA_DIR | is-empty ) {
     $env.HOME | path join '.asdf'
@@ -12,10 +73,6 @@ $env.PATH = ( $env.PATH | split row (char esep)
     | prepend '/opt/homebrew/bin'
     | prepend '/Users/ilialuk/.cargo/bin'
     | append ~/bin)
-
-zoxide init nushell | save -f ~/.zoxide.nu
-
-source ~/.zoxide.nu
 
 let fish_completer = {|spans|
     fish --command $"complete '--do-complete=($spans | str join ' ')'"
@@ -80,42 +137,7 @@ $env.config = {
   }
 }
 
-{ ||
-  if (which direnv | is-empty) {
-    return
-  }
-  direnv export json | from json | default {} | load-env
-}
 
-$env.config = ($env.config? | default {})
-$env.config.hooks = ($env.config.hooks? | default {})
-
-$env.EDITOR = 'nvim'
-$env.ASDF_DATA_DIR = $"($env.HOME)/.asdf"
-$env.ASDF_PYTHON_PATCH_URL = "https://github.com/python/cpython/commit/8ea6353.patch?full_index=1"
-
-mkdir $"($env.ASDF_DATA_DIR)/completions"
-asdf completion nushell | save -f $"($env.ASDF_DATA_DIR)/completions/nushell.nu"
-
-def zea [...x] { zellij attach ...$x }
-def zec [...x] { zellij -s ...$x }
-def zel [...x] { zellij list-sessions }
-def zek [...x] { zellij kill-session ...$x }
-def zed [...x] { zellij delete-session ...$x }
-
-alias cat = bat
-alias diff = batdiff
-alias fd = fd -Lu
-alias fetch = fastfetch
-alias gitfetch = onefetch
-alias grep = batgrep
-alias ll = ls -a 
-alias man = batman
-alias top = btm
-alias watch = batwatch
-
-mkdir ($nu.data-dir | path join "vendor/autoload")
-starship init nu | save -f ($nu.data-dir | path join "vendor/autoload/starship.nu")
 
 
 
