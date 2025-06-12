@@ -75,48 +75,48 @@ reversed = true
 
 [input.value]
 
-[mgr]
+[manager]
 border_symbol = "│"
 tab_width = 1
-[mgr.border_style]
+[manager.border_style]
 fg = "#45475a"
 
-[mgr.cwd]
+[manager.cwd]
 fg = "#94e2d5"
 
-[mgr.find_keyword]
+[manager.find_keyword]
 fg = "#f9e2af"
 italic = true
 
-[mgr.find_position]
+[manager.find_position]
 bg = "reset"
 fg = "#fab387"
 italic = true
 
-[mgr.hovered]
+[manager.hovered]
 bg = "#313244"
 fg = "#cdd6f4"
 
-[mgr.marker_copied]
+[manager.marker_copied]
 bg = "#f9e2af"
 fg = "#f9e2af"
 
-[mgr.marker_cut]
+[manager.marker_cut]
 bg = "#f38ba8"
 fg = "#f38ba8"
 
-[mgr.marker_selected]
+[manager.marker_selected]
 bg = "#94e2d5"
 fg = "#94e2d5"
 
-[mgr.preview_hovered]
+[manager.preview_hovered]
 underline = true
 
-[mgr.tab_active]
+[manager.tab_active]
 bg = "#1e1e2e"
 fg = "#f5e0dc"
 
-[mgr.tab_inactive]
+[manager.tab_inactive]
 bg = "#1e1e2e"
 fg = "#585b70"
 
