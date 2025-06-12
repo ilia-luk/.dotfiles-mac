@@ -19,6 +19,7 @@ A modern macOS terminal environment that includes:
 - Configured `yazi` with `catppuccin`.
 - Configured `bat` with `catppuccin`.
 - Configured `lazygit` with `catppuccin`.
+- Configured `lazyvim` with `catppuccin`, `avante` and `dap`.
 
 ## Previews
 
@@ -54,15 +55,14 @@ A modern macOS terminal environment that includes:
 Install brew dependencies and fonts from --cask
 
 ```bash
-  brew install stow openssl cmake kitty fish nushell carapace starship asdf bat bat-extras onefetch fastfetch bottom htop zellij yazi ffmpeg sevenzip jq poppler fd ripgrep fzf zoxide resvg imagemagick font-symbols-only-nerd-font gpg gawk tmux lazygit xh dua-cli mprocs atuin
+  brew install stow openssl cmake kitty fish nushell carapace starship asdf bat bat-extras onefetch fastfetch bottom htop zellij yazi ffmpeg sevenzip jq poppler fd ripgrep fzf zoxide resvg imagemagick font-symbols-only-nerd-font gpg gawk tmux lazygit xh dua-cli mprocs atuin neovim
 ```
 
 ```bash
   brew install --cask font-fira-code-nerd-font
-
 ```
 
-### Configure
+### Clone project
 
 step 1: create `~/.dotfiles` path on your machine by running the following
 
@@ -76,13 +76,24 @@ step 2: clone this repository into `~/.dotfiles` path.
   git clone <repo-url> ~/.dotfiles
 ```
 
-step 3: symlink all files (you might need to backup/remove existing config files)
+### Add global variables
+
+after cloning rename `env.example.nu` to `env.nu` in the `/Library/Application Support/nushell/` path of this repo and fill your environment global variables,
+if you want to change default editor, change from `nvim` to `code` or whatever you use.
+
+```nu
+  $env.EDITOR = 'nvim'
+```
+
+### Configure
+
+step 1: symlink all files (you might need to backup/remove existing config files)
 
 ```bash
  stow .
 ```
 
-step 4: give execute permissions for `sync-dotfiles` script
+step 2: give execute permissions for `sync-dotfiles` script
 
 ```bash
   chmod +x ~/bin/sync-dotfiles
@@ -117,18 +128,6 @@ step 3: define nu as default shell
 ```
 
 step 4: close current terminal and re/open kitty.
-
-### Change default editor
-
-step: 1: In `~/.dotfiles/Library/Application Support/nushell/config.nu` change the following to the editor of your choice
-
-```nu
-  $env.EDITOR = 'nvim'
-```
-
-step 2: Run `sync-dotfiles`.
-
-step 3: reopen kitty.
 
 ### NodeJS and Python version manager installation
 
@@ -193,4 +192,5 @@ enable catppuccin bat theme
 - Font(FiraCode): [nerd-fonts](https://www.nerdfonts.com/)
 - Git info: [onefetch](https://github.com/o2sh/onefetch)
 - System info: [fastfetch](https://github.com/fastfetch-cli/fastfetch)
-- Search history: [Atuin](https://github.com/atuinsh/atuin)
+- Search history: [atuin](https://github.com/atuinsh/atuin)
+- Editor: [lazyvim](https://www.lazyvim.org/)

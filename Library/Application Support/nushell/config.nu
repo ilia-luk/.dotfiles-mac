@@ -3,7 +3,6 @@ $env.PATH = ( $env.PATH | split row (char esep)
 
 $env.config = ($env.config? | default {})
 $env.config.hooks = ($env.config.hooks? | default {})
-$env.EDITOR = 'nvim'
 
 def zea [...x] { zellij attach ...$x }
 def zec [...x] { zellij -s ...$x }
