@@ -47,6 +47,14 @@ A modern macOS terminal environment that includes:
 <summary>🧮 Lazygit</summary>
 <img src="assets/lazygit.webp"/>
 </details>
+<details>
+<summary>🗃️ Atuin</summary>
+<img src="assets/atuin.webp"/>
+</details>
+<details>
+<summary>🪄 LazyVim</summary>
+<img src="assets/lazyvim.webp"/>
+</details>
 
 ## Installation
 
