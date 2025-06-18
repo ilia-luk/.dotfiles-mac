@@ -68,6 +68,8 @@ Install brew dependencies and fonts from --cask
 
 ```bash
   brew install --cask font-fira-code-nerd-font
+
+  brew install --cask font-fira-code
 ```
 
 ### Clone project
