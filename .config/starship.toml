@@ -1,38 +1,54 @@
 add_newline = true
 command_timeout = 1000
+format = "[┌─$git_branch$git_status$git_commit$git_state$git_metrics$fill─> ](bold green)$character$cmd_duration$time\n[│](bold green) $directory$direnv$rust$nodejs$bun$python$conda$package\n[└──>](bold green) "
+scan_timeout = 10
 
-format = '''
-[┌─$git_branch$git_status$git_commit$git_state$git_metrics$fill─> ](bold green)$character$cmd_duration$time
-[│](bold green) $directory$rust$nodejs$bun$python$conda$package
-[└──>](bold green) '''
-
-[fill]
-symbol = '─'
-style = 'bold green'
+[bun]
+format = "| [🍔 $version](bold green) "
 
 [character]
 error_symbol = "[ ](red)"
-success_symbol = "[✔](green)"
+success_symbol = "[✓ ](green)"
+
+[cmd_duration]
+format = "[\\[ $duration \\]](bold cyan) | "
+min_time = 500
+
+[conda]
+format = "| [$symbol$environment](dimmed green) "
 
 [directory]
+fish_style_pwd_dir_length = 8
 format = "[$path]($style)[$read_only]($read_only_style) "
 home_symbol = "󰋞 ~"
 read_only = "  "
 read_only_style = "197"
 style = "bold blue"
-truncation_symbol = '...'
-fish_style_pwd_dir_length = 8
+truncation_symbol = "..."
 
-[package]
-format = ' | [$symbol$version]($style) '
-symbol = '📦 '
-version_format = 'v${raw}'
-style = 'bold 208'
+[direnv]
+allowed_msg = "Allowed: [✓]"
+denied_msg = "Denied [🛑]"
+disabled = false
+format = "[$symbol $loaded / $allowed]($style) "
+loaded_msg = "Loaded: [✓]"
+not_allowed_msg = "Allowed: [x]"
+style = "yellow"
+symbol = "🗁  "
+unloaded_msg = "Loaded: [x]"
+
+[fill]
+style = "bold green"
+symbol = "─"
 
 [git_branch]
 format = "[$symbol $branch]($style) "
 style = "bold green"
 symbol = " "
+
+[git_commit]
+commit_hash_length = 4
+tag_symbol = "🔖 "
 
 [git_status]
 ahead = "⇡${count}"
@@ -49,15 +65,45 @@ style = "bold cyan"
 untracked = " "
 up_to_date = " "
 
-[git_commit]
-commit_hash_length = 4
-tag_symbol = '🔖 '
-
-
 [hostname]
 disabled = false
 format = "@ [$hostname](bold yellow) "
 ssh_only = false
+
+[nodejs]
+format = "| [🤖 $version](bold green) "
+
+[package]
+format = " | [$symbol$version]($style) "
+style = "bold 208"
+symbol = "📦 "
+version_format = "v$raw"
+
+[python]
+pyenv_version_name = true
+symbol = "| 👾 "
+
+[rust]
+format = "| [🦀 $version](red bold)"
+
+[shell]
+disabled = false
+format = "[$indicator]($style) "
+nu_indicator = "❯"
+style = "bold green"
+unknown_indicator = "❯"
+
+[sudo]
+disabled = false
+style = "bold green"
+symbol = "👩‍💻 "
+
+[time]
+disabled = false
+format = "[\\[ $time \\]]($style)"
+style = "bold yellow"
+time_format = "%T"
+utc_time_offset = "local"
 
 [username]
 disabled = false
@@ -65,45 +111,3 @@ format = "[$user]($style) "
 show_always = true
 style_root = "white"
 style_user = "white"
-
-[sudo]
-style = 'bold green'
-symbol = '👩‍💻 '
-disabled = false
-
-[rust]
-format = '| [🦀 $version](red bold)'
-
-[python]
-symbol = '| 👾 '
-pyenv_version_name = true
-
-[conda]
-format = '| [$symbol$environment](dimmed green) '
-
-[nodejs]
-format = '| [🤖 $version](bold green) '
-
-[bun]
-format = '| [🍔 $version](bold green) '
-
-[direnv]
-disabled = false
-
-[time]
-disabled = false
-format = '[\[ $time \]]($style)'
-style = 'bold yellow'
-time_format = '%T'
-utc_time_offset = 'local'
-
-[cmd_duration]
-min_time = 500
-format = '[\[ $duration \]](bold cyan) | '
-
-[shell]
-disabled = false
-nu_indicator = '❯'
-unknown_indicator = '❯'
-format = '[$indicator]($style) '
-style = 'bold green'

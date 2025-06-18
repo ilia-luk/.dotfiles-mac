@@ -5,4 +5,10 @@ return {
       colorscheme = "catppuccin",
     },
   },
+  {
+    "catppuccin",
+    opts = {
+      transparent_background = true,
+    },
+  },
 }

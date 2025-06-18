@@ -1,3 +1,11 @@
+[cmp.active]
+fg = "#fab387"
+
+[cmp.border]
+fg = "#45475a"
+
+[cmp.inactive]
+
 [[filetype.rules]]
 fg = "#94e2d5"
 mime = "image/*"
@@ -46,12 +54,8 @@ name = "*"
 fg = "#89b4fa"
 name = "*/"
 
-[help]
 [help.desc]
 fg = "#45475a"
-
-[help.exec]
-fg = "#94e2d5"
 
 [help.footer]
 bg = "#585b70"
@@ -64,7 +68,9 @@ bold = true
 [help.on]
 fg = "#fab387"
 
-[input]
+[help.run]
+fg = "#94e2d5"
+
 [input.border]
 fg = "#45475a"
 
@@ -77,7 +83,6 @@ reversed = true
 
 [mgr]
 border_symbol = "│"
-tab_width = 1
 [mgr.border_style]
 fg = "#45475a"
 
@@ -112,55 +117,47 @@ fg = "#94e2d5"
 [mgr.preview_hovered]
 underline = true
 
-[mgr.tab_active]
-bg = "#1e1e2e"
-fg = "#f5e0dc"
+[mode.normal_alt]
+bg = "#45475a"
+fg = "#cba6f7"
 
-[mgr.tab_inactive]
-bg = "#1e1e2e"
-fg = "#585b70"
-
-[select]
-[select.active]
-fg = "#fab387"
-
-[select.border]
-fg = "#45475a"
-
-[select.inactive]
-
-[status]
-separator_close = ""
-separator_open = ""
-[status.mode_normal]
+[mode.normal_main]
 bg = "#cba6f7"
 bold = true
 fg = "#1e1e2e"
 
-[status.mode_select]
+[mode.select_alt]
+bg = "#a6e3a1"
+fg = "#585b70"
+
+[mode.select_main]
 bg = "#94e2d5"
 bold = true
 fg = "#585b70"
 
-[status.mode_unset]
+[mode.unset_main]
 bg = "#f38ba8"
 bold = true
 fg = "#585b70"
 
-[status.permissions_r]
+[status.overall]
+bg = "#1e1e2e"
+fg = "#b4befe"
+
+[status.perm_exec]
+fg = "#94e2d5"
+
+[status.perm_read]
 fg = "#f9e2af"
 
-[status.permissions_s]
+[status.perm_sep]
 fg = "#585b70"
 
-[status.permissions_t]
+[status.perm_type]
 fg = "#89b4fa"
 
-[status.permissions_w]
+[status.perm_write]
 fg = "#f38ba8"
-
-[status.permissions_x]
-fg = "#94e2d5"
 
 [status.progress_error]
 bg = "#1e1e2e"
@@ -174,11 +171,30 @@ fg = "#585b70"
 bg = "#1e1e2e"
 fg = "#1e1e2e"
 
-[status.separator_style]
-bg = "#45475a"
-fg = "#45475a"
+[status.sep_left]
+close = ""
+open = ""
 
-[tasks]
+[status.sep_right]
+close = ""
+open = ""
+
+[tabs.active]
+bg = "#585b70"
+fg = "#f5e0dc"
+
+[tabs.inactive]
+bg = "#1e1e2e"
+fg = "#585b70"
+
+[tabs.sep_inner]
+close = ""
+open = ""
+
+[tabs.sep_outer]
+close = ""
+open = ""
+
 [tasks.border]
 fg = "#45475a"
 

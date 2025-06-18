@@ -1,3 +1,5 @@
+source ./catppuccin-mocha.nu
+
 $env.PATH = ( $env.PATH | split row (char esep)
     | prepend '/opt/homebrew/bin')
 
