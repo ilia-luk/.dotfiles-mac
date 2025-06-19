@@ -76,7 +76,6 @@ let shims_dir = (
 $env.PATH = ( $env.PATH | split row (char esep)
     | where { |p| $p != $shims_dir }
     | prepend $shims_dir
-    | prepend '/opt/homebrew/bin'
     | prepend '/Users/ilialuk/.cargo/bin'
     | append ~/bin)
 
