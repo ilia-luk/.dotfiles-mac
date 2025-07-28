@@ -2,7 +2,8 @@ source ./catppuccin-mocha.nu
 
 $env.PATH = ( $env.PATH | split row (char esep)
     | prepend '/opt/homebrew/bin'
-    | prepend '/opt/homebrew/sbin')
+    | prepend '/opt/homebrew/sbin'
+    | prepend '/Applications/Docker.app/Contents/Resources/bin/')
 
 $env.config = ($env.config? | default {})
 $env.config.hooks = ($env.config.hooks? | default {})
