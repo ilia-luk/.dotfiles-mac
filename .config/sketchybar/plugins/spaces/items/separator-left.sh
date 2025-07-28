@@ -7,10 +7,8 @@ separator_left=(
 	background.padding_right=10
 	label.drawing=off
 	associated_display=active
-	click_script='yabai -m space --create
-                sketchybar --trigger space_change'
 	icon.color="$TEXT"
 )
 
-sketchybar 	--add item separator_left left 			\
-						--set separator_left "${separator_left[@]}"
+sketchybar --add item separator_left left \
+	--set separator_left "${separator_left[@]}"

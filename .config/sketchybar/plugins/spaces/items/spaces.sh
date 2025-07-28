@@ -2,10 +2,10 @@
 
 source "$HOME/.config/sketchybar/colors.sh"
 
-SPACE_ICONS=(" " " " " " " " "󰙯" "󰀶 " "󰃰 " " " " ")
+SPACE_ICONS=(" " "" " " " " "󰙯" "󰀶 " "󰃰 " " " " ")
 
 space=(
-	icon.font="Liga SFMono Nerd Font:Bold:16.0"
+	icon.font="Hack Nerd Font:Bold:16.0"
 	icon.padding_left=7
 	icon.padding_right=7
 	background.padding_left=2
@@ -20,19 +20,17 @@ space=(
 	script="$PLUGIN_DIR/spaces/scripts/space.sh"
 )
 
-# Destroy space on right click, focus space on left click.
-# New space by left clicking separator (>)
+sketchybar --add event aerospace_workspace_change
 
-sid=0
-for i in "${!SPACE_ICONS[@]}"; do
-	sid=$(($i + 1))
+for sid in $(aerospace list-workspaces --all); do
+	sketchybar --add space space."$sid" left \
+		--set space."$sid" associated_space="$sid" \
+		icon="${SPACE_ICONS[sid]}" \
+		icon.highlight_color="$(getRandomCatColor)" \
+		"${space[@]}" \
+		--subscribe space."$sid" mouse.clicked \
+		--subscribe space."$sid" aerospace_workspace_change
 
-	sketchybar 	--add space space.$sid left 								\
-							--set space.$sid associated_space=$sid 			\
-																icon="${SPACE_ICONS[i]}" 										\
-																icon.highlight_color="$(getRandomCatColor)" \
-																"${space[@]}" 															\
-							--subscribe space.$sid mouse.clicked
 done
 
 spaces_bracket=(
