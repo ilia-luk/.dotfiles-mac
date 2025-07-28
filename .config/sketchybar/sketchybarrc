@@ -1,7 +1,7 @@
 #!/bin/bash
 
-source "$HOME/.config/sketchybar/colors.sh" # Loads all defined colors
-source "$HOME/.config/sketchybar/icons.sh" # Loads all defined icons
+source "$HOME/.config/sketchybar/colors.sh"     # Loads all defined colors
+source "$HOME/.config/sketchybar/icons.sh"      # Loads all defined icons
 source "$HOME/.config/sketchybar/userconfig.sh" # Loads all defined variables
 
 export PLUGIN_DIR="$HOME/.config/sketchybar/plugins" # Directory where all the plugins are stored
@@ -57,7 +57,7 @@ popup_defaults=(
 	popup.background.color="$MANTLE"
 	popup.background.corner_radius=0
 	popup.background.shadow.drawing=off
-  popup.blur_radius=20
+	popup.blur_radius=20
 )
 
 # Setting up the general bar appearance and default values
@@ -86,6 +86,21 @@ source "$PLUGIN_DIR/stats/item.sh"
 # Center
 # source "$ITEM_DIR/spotify.sh"
 # source "$PLUGIN_DIR/dynamic-island/item.sh"
+
+sketchybar --add event aerospace_workspace_change
+
+for sid in $(aerospace list-workspaces --all); do
+	sketchybar --add item space.$sid left \
+		--subscribe space.$sid aerospace_workspace_change \
+		--set space.$sid \
+		background.color=0x44ffffff \
+		background.corner_radius=5 \
+		background.height=20 \
+		background.drawing=off \
+		label="$sid" \
+		click_script="aerospace workspace $sid" \
+		script="$CONFIG_DIR/plugins/aerospace/item.sh $sid"
+done
 
 # Forcing all item scripts to run (never do this outside of sketchybarrc)
 sketchybar --update
