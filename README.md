@@ -69,7 +69,7 @@ Install brew dependencies and fonts from --cask
 ```
 
 ```bash
-  brew install stow openssl cmake kitty fish nushell carapace starship asdf bat bat-extras onefetch fastfetch bottom htop zellij yazi ffmpeg sevenzip jq poppler fd ripgrep fzf zoxide resvg imagemagick font-symbols-only-nerd-font gpg gawk tmux lazygit xh dua-cli mprocs atuin neovim sketchybar borders
+  brew install stow openssl cmake kitty fish nushell carapace starship asdf bat bat-extras onefetch fastfetch bottom htop zellij yazi ffmpeg sevenzip jq poppler fd ripgrep fzf zoxide resvg imagemagick font-symbols-only-nerd-font gpg gawk tmux lazygit xh dua-cli mprocs atuin neovim sketchybar
 ```
 
 ```bash
@@ -83,7 +83,6 @@ Install brew dependencies and fonts from --cask
 
 ```bash
   brew services start sketchybar
-  brew services start borders
 ```
 
 ### Clone project
@@ -200,7 +199,6 @@ enable catppuccin bat theme
 - Prompt: [starship](https://starship.rs/)
 - Window manager: [aerospace](https://nikitabobko.github.io/AeroSpace/guide)
 - Bar: [sketchybar](https://felixkratz.github.io/SketchyBar/)
-- Borders: [borders](https://github.com/FelixKratz/JankyBorders)
 - Version manager: [asdf](https://asdf-vm.com/)
 - Syntax highlighted `cat`: [bat](http://github.com/sharkdp/bat)
 - `bat` for everything: [bat-extras](https://github.com/eth-p/bat-extras)
