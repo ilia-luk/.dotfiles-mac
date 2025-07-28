@@ -1,7 +1,8 @@
 source ./catppuccin-mocha.nu
 
 $env.PATH = ( $env.PATH | split row (char esep)
-    | prepend '/opt/homebrew/bin')
+    | prepend '/opt/homebrew/bin'
+    | prepend '/opt/homebrew/sbin')
 
 $env.config = ($env.config? | default {})
 $env.config.hooks = ($env.config.hooks? | default {})

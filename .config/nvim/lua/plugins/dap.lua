@@ -2,13 +2,23 @@ return {
   "mfussenegger/nvim-dap",
   opts = function()
     local dap = require("dap")
-    dap.adapters["pwa-node"].host = "127.0.0.1"
-    dap.adapters["node"].host = "127.0.0.1"
+    dap.adapters["pwa-node"] = {
+      type = "executable",
+      host = "127.0.0.1",
+    }
+
+    dap.adapters.node = {
+      type = "executable",
+      host = "127.0.0.1",
+    }
+
     dap.adapters.lldb = {
       type = "executable",
       command = "/opt/homebrew/bin/lldb-vscode", -- adjust as needed
       name = "lldb",
+      host = "127.0.0.1",
     }
+
     dap.configurations.rust = {
       {
         name = "hello-world",

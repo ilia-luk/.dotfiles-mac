@@ -13,6 +13,8 @@ A modern macOS terminal environment that includes:
 - Custom `sync-dotfiles` script for easy updates.
 - Using `nushell` as a shell.
 - Using `kitty` as a terminal with `catppuccin` and custom tabs.
+- Using `aerospace` as a windows manager.
+- Using `sketchybar` as a bar.
 - Custom `starship` configuration with `catppuccin` and extras.
 - Custom `tmux` configuration with `catppuccin` and extras.
 - Configured `zellij` with `catppuccin`.
@@ -63,13 +65,21 @@ A modern macOS terminal environment that includes:
 Install brew dependencies and fonts from --cask
 
 ```bash
-  brew install stow openssl cmake kitty fish nushell carapace starship asdf bat bat-extras onefetch fastfetch bottom htop zellij yazi ffmpeg sevenzip jq poppler fd ripgrep fzf zoxide resvg imagemagick font-symbols-only-nerd-font gpg gawk tmux lazygit xh dua-cli mprocs atuin neovim
+  brew tap FelixKratz/formulae
+```
+
+```bash
+  brew install stow openssl cmake kitty fish nushell carapace starship asdf bat bat-extras onefetch fastfetch bottom htop zellij yazi ffmpeg sevenzip jq poppler fd ripgrep fzf zoxide resvg imagemagick font-symbols-only-nerd-font gpg gawk tmux lazygit xh dua-cli mprocs atuin neovim sketchybar 
 ```
 
 ```bash
   brew install --cask font-fira-code-nerd-font
-
   brew install --cask font-fira-code
+  brew install --cask nikitabobko/tap/aerospace
+```
+
+```bash
+  brew services start sketchybar
 ```
 
 ### Clone project
@@ -184,6 +194,8 @@ enable catppuccin bat theme
 - Terminal: [kitty](https://sw.kovidgoyal.net/kitty/)
 - Shell: [nushell](https://www.nushell.sh/)
 - Prompt: [starship](https://starship.rs/)
+- Window manager: [aerospace](https://nikitabobko.github.io/AeroSpace/guide)
+- Bar: [sketchybar](https://felixkratz.github.io/SketchyBar/)
 - Version manager: [asdf](https://asdf-vm.com/)
 - Syntax highlighted `cat`: [bat](http://github.com/sharkdp/bat)
 - `bat` for everything: [bat-extras](https://github.com/eth-p/bat-extras)
