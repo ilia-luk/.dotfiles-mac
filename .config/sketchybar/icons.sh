@@ -16,9 +16,9 @@ export WIFI=􀙇
 export BLUETOOTH=􀰬
 
 export BATTERY=
-export CPU=
-export DISK=
-export MEMORY=﬙
+export CPU=
+export DISK=
+export MEMORY=
 export NETWORK=
 export NETWORK_DOWN=
 export NETWORK_UP=
@@ -58,4 +58,3 @@ export VOLUME_66=􀊧
 export VOLUME_33=􀊥
 export VOLUME_10=􀊡
 export VOLUME_0=􀊣
-
