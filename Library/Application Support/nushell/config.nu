@@ -3,7 +3,8 @@ source ./catppuccin-mocha.nu
 $env.PATH = ( $env.PATH | split row (char esep)
     | prepend '/opt/homebrew/bin'
     | prepend '/opt/homebrew/sbin'
-    | prepend '/Applications/Docker.app/Contents/Resources/bin/')
+    | prepend '/Applications/Docker.app/Contents/Resources/bin/' 
+    )
 
 $env.config = ($env.config? | default {})
 $env.config.hooks = ($env.config.hooks? | default {})
@@ -78,8 +79,10 @@ let shims_dir = (
 $env.PATH = ( $env.PATH | split row (char esep)
     | where { |p| $p != $shims_dir }
     | prepend $shims_dir
-    | prepend '/Users/ilialuk/.cargo/bin'
-    | append ~/bin)
+    | prepend $'($env.HOME)/.cargo/bin'
+    | append ~/bin
+    | append $'($env.HOME)/.local/bin'
+)
 
 let fish_completer = {|spans|
     fish --command $"complete '--do-complete=($spans | str join ' ')'"
