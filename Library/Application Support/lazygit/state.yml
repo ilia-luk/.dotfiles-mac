@@ -1,9 +1,10 @@
 lastupdatecheck: 0
 recentrepos:
+    - /Users/ilialuk/Dev/riverpool
     - /Users/ilialuk/Dev/Domusnetwork
     - /Users/ilialuk/.dotfiles
 startuppopupversion: 5
-lastversion: 0.51.1
+lastversion: 0.53.0
 customcommandshistory: []
 hidecommandlog: false
 ignorewhitespaceindiffview: false

@@ -3,8 +3,9 @@ source ./catppuccin-mocha.nu
 $env.PATH = ( $env.PATH | split row (char esep)
     | prepend '/opt/homebrew/bin'
     | prepend '/opt/homebrew/sbin'
+    | prepend '/opt/homebrew/opt/postgresql@17/bin'
     | prepend '/Applications/Docker.app/Contents/Resources/bin/' 
-    )
+)
 
 $env.config = ($env.config? | default {})
 $env.config.hooks = ($env.config.hooks? | default {})
@@ -82,6 +83,7 @@ $env.PATH = ( $env.PATH | split row (char esep)
     | prepend $'($env.HOME)/.cargo/bin'
     | append ~/bin
     | append $'($env.HOME)/.local/bin'
+    | append './.venv/bin' 
 )
 
 let fish_completer = {|spans|
