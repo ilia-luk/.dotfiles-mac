@@ -4,6 +4,7 @@ $env.PATH = ( $env.PATH | split row (char esep)
     | prepend '/opt/homebrew/bin'
     | prepend '/opt/homebrew/sbin'
     | prepend '/opt/homebrew/opt/postgresql@17/bin'
+    | prepend '/opt/homebrew/opt/curl/bin'
     | prepend '/Applications/Docker.app/Contents/Resources/bin/' 
 )
 
