@@ -37,11 +37,11 @@ return {
       providers = {
         openai = {
           endpoint = "https://api.openai.com/v1",
-          model = "gpt-4o", -- your desired model (or use gpt-4o, etc.)
+          model = "gpt-5", -- your desired model (or use gpt-4o, etc.)
           api_key_name = "OPENAI_API_KEY",
           extra_request_body = {
             temperature = 0,
-            max_completion_tokens = 8192, -- Increase this to include reasoning tokens (for reasoning models)
+            max_completion_tokens = 120000, -- Increase this to include reasoning tokens (for reasoning models)
             --reasoning_effort = "medium", -- low|medium|high, only used for reasoning models
           },
         },
